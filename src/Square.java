@@ -1,26 +1,14 @@
-public class Square {
+public class Square extends BaseShape {
     //Basic parameters; height and length as well as what character to fill with
     private int sideLength;
-    private char fillChar = 'a';
-    private boolean filled;
-
-    //charTable and StringTable for rendering
-    private char[][] charTableInternal;
-    private String[] stringTableInternal;
-
-    //Positional coordinates on the screen with (0, 0) at top left
-    private Position position = new Position();
-    
-    //Show/hide?
-    private boolean isVisible = true;
 
     /*
     * CONSTRUCTORS
     */
     public Square() {
         sideLength = 10;
-        filled = true;
-        isVisible = true;
+        setFilled(true);
+        show();
 
         //charTableInternal = new char[height][width]; //Not needed right now because of no collision detection
         //regenCharTable(); //Not needed right now because of no collision detection
@@ -31,8 +19,8 @@ public class Square {
 
     public Square(int x, int y, int sideLength, boolean filled) {
         this.sideLength = sideLength;
-        this.filled = filled;
-        isVisible = true;
+        setFilled(filled);
+        show();
 
         //charTableInternal = new char[height][width]; //Not needed right now because of no collision detection
         //regenCharTable(); //Not needed right now because of no collision detection
@@ -54,34 +42,24 @@ public class Square {
         sideLength = newSL;
         regenStringTable();
     }
-
-    public char getFillChar() {
-        return fillChar;
-    }
-    public void setFillChar(char newChar) {
-        fillChar = newChar;
-        regenStringTable();
-    }
-
-    public boolean getFilled() {
-        return filled;
-    }
-    public void setFilled(boolean isFilled) {
-        filled = isFilled;
-        regenStringTable();
+    
+    public int getWidth() {
+    	return getSideLength();
     }
     
-    public boolean getVisible() {
-    	return isVisible;
+    public void setWidth(int newSL ) {
+    	setSideLength(newSL);
     }
     
-    public void show() {
-    	isVisible = true;
+    public int getHeight() {
+    	return getSideLength();
     }
     
-    public void hide() {
-    	isVisible = false;
+    public void setHeight(int newSL) {
+    	setSideLength(newSL);
     }
+    
+    
 
     /*
     * StringTable/CharTable implementation (mesh geometry)
@@ -89,9 +67,10 @@ public class Square {
 
     public char[][] regenCharTable() {
         char[][] charTable = new char[sideLength][sideLength];
+        char fillChar = getFillChar();
         for (int i=0; i<sideLength; i++) {
             for (int j=0; j<sideLength; j++) {
-                if (filled) {
+                if (getFilled()) {
                     charTable[i][j] = fillChar;
                 } else {
                     if ((i == 0 || i == sideLength) && (j == 0 || j == sideLength)) {
@@ -104,10 +83,6 @@ public class Square {
         }
         charTableInternal = charTable; //set internal char table to what we just generated
         return charTable; //and return
-    }
-
-    public char[][] getCharTable() {
-        return charTableInternal;
     }
 
     public String[] regenStringTable() {
@@ -128,23 +103,6 @@ public class Square {
         }
         stringTableInternal = stringTable;
         return stringTable;
-    }
-
-    public String[] getStringTable() {
-        return stringTableInternal;
-    }
-
-    /*
-     * GetPosition
-    */
-
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(int x, int y) {
-        position.x = x;
-        position.y = y;
     }
     
     /*
