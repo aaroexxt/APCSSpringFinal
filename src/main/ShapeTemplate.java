@@ -1,5 +1,5 @@
 //Interface that governs basic shape type
-public interface Shape {
+public interface ShapeTemplate {
 	//Show/hide when rendering
 	public void show();
 	public void hide();

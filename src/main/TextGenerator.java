@@ -1,3 +1,4 @@
+package main;
 import java.util.HashMap;
 public class TextGenerator {
 	//Create HashMap to store font

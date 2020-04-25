@@ -1,3 +1,5 @@
+package main;
+
 public class Position {
     //Public ints - can access externally
     public int x;

@@ -28,7 +28,7 @@ public class Square extends BaseShape {
         stringTableInternal = new String[sideLength];
         regenStringTable();
 
-        position.setPosition(x,y); //update position onscreen
+        setPosition(x,y); //update position onscreen
     }
 
     /*

@@ -1,17 +1,9 @@
-public class BitMap {
+package main;
+
+public class BitMap extends BaseShape {
     //Basic parameters; height width
     private int width;
     private int height;
-
-    //charTable and StringTable for rendering
-    private char[][] charTableInternal;
-    private String[] stringTableInternal;
-
-    //Positional coordinates on the screen with (0, 0) at top left
-    private Position position = new Position();
-    
-    //Show/hide?
-    private boolean isVisible = true;
 
     /*
     * CONSTRUCTORS
@@ -19,7 +11,7 @@ public class BitMap {
     public BitMap() {
         width = 40;
         height = 10;
-        isVisible = true;
+        show();
 
         //charTableInternal = new char[height][width]; //Not needed right now because of no collision detection
         //regenCharTable(); //Not needed right now because of no collision detection
@@ -38,14 +30,14 @@ public class BitMap {
     			this.width = bmpRowLen;
     		}
     	}
-    	isVisible = true;
+    	show();
 
         //charTableInternal = new char[height][width]; //Not needed right now because of no collision detection
         //regenCharTable(); //Not needed right now because of no collision detection
 
         stringTableInternal = BMP;
 
-        position.setPosition(x,y); //update position onscreen
+        setPosition(x,y); //update position onscreen
     }
 
     /*
@@ -58,18 +50,6 @@ public class BitMap {
 
     public int getHeight() {
         return height;
-    }
-    
-    public boolean getVisible() {
-    	return isVisible;
-    }
-    
-    public void show() {
-    	isVisible = true;
-    }
-    
-    public void hide() {
-    	isVisible = false;
     }
 
     /*
@@ -86,10 +66,6 @@ public class BitMap {
         charTableInternal = charTable;
         return charTable; //and return
     }
-
-    public char[][] getCharTable() {
-        return charTableInternal;
-    }
     
     public void setStringTable(String[] BMP) {
     	this.height = BMP.length;
@@ -104,28 +80,11 @@ public class BitMap {
     	
         stringTableInternal = BMP;
     }
-
-    public String[] getStringTable() {
-        return stringTableInternal;
-    }
-
-    /*
-     * GetPosition
-    */
-
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(int x, int y) {
-        position.x = x;
-        position.y = y;
-    }
     
     /*
      * TOSTRING
      */
     public String toString() {
-        return "Type: BitMap, width: "+width+", height: "+height+", position: "+position;
+        return "Type: BitMap, width: "+width+", height: "+height+", position: "+getPosition();
     }
 }

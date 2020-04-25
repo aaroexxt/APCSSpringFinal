@@ -1,3 +1,5 @@
+package main;
+
 import java.util.HashMap;
 
 //Another idea for implementation of a simpler hashmap layout

@@ -1,7 +1,8 @@
+package main;
 
 public abstract class BaseShape implements ShapeTemplate {
 	//Positional coordinates on the screen with (0, 0) at top left
-    protected Position position = new Position();
+    private Position position = new Position();
     
     //Show/hide?
     private boolean isVisible = true;
@@ -66,8 +67,11 @@ public abstract class BaseShape implements ShapeTemplate {
         position.y = y;
     }
     
-    public abstract String[] regenStringTable();
+    //public abstract String[] regenStringTable();
     public abstract char[][] regenCharTable();
     public abstract String toString();
+    
+    public abstract int getWidth();
+    public abstract int getHeight();
 	
 }
