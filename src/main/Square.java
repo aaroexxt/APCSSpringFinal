@@ -1,3 +1,5 @@
+package main;
+
 public class Square extends BaseShape {
     //Basic parameters; height and length as well as what character to fill with
     private int sideLength;
@@ -87,10 +89,11 @@ public class Square extends BaseShape {
 
     public String[] regenStringTable() {
         String[] stringTable = new String[sideLength];
+        char fillChar = getFillChar();
         for (int i=0; i<sideLength; i++) {
             stringTable[i] = "";
             for (int j=0; j<sideLength*2; j++) {
-                if (filled) {
+                if (getFilled()) {
                     stringTable[i] += fillChar;
                 } else {
                     if ((i == 0 || i == sideLength) && (j == 0 || j == sideLength)) {
@@ -109,6 +112,6 @@ public class Square extends BaseShape {
      * TOSTRING
      */
     public String toString() {
-        return "Type: Square, sideLength: "+sideLength+", fillChar: "+fillChar+", isFilled: "+filled;
+        return "Type: Square, sideLength: "+sideLength+", fillChar: "+getFillChar()+", isFilled: "+getFilled()+", position: "+getPosition();
     }
 }

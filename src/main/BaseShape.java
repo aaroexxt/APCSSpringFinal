@@ -67,7 +67,7 @@ public abstract class BaseShape implements ShapeTemplate {
         position.y = y;
     }
     
-    //public abstract String[] regenStringTable();
+    public abstract String[] regenStringTable();
     public abstract char[][] regenCharTable();
     public abstract String toString();
     
