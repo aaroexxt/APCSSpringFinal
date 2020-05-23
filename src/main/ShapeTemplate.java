@@ -1,5 +1,7 @@
+//#22 - interface
+
 //Interface that governs basic shape type
-public interface ShapeTemplate {
+public interface ShapeTemplate { #
 	//Show/hide when rendering
 	public void show();
 	public void hide();
@@ -26,6 +28,4 @@ public interface ShapeTemplate {
 	
 	//ToString
 	public String toString();
-	
-	
 }

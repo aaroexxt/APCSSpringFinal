@@ -1,6 +1,6 @@
 package main;
 
-public abstract class BaseShape implements ShapeTemplate {
+public abstract class BaseShape implements ShapeTemplate { //#21 - BaseShape is-a ShapeTemplate
 	//Positional coordinates on the screen with (0, 0) at top left
     private Position position = new Position();
     

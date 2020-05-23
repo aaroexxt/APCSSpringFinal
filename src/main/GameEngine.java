@@ -27,7 +27,7 @@ public class GameEngine { //#9 below, class design with methods, constructors, e
      * CONSTRUCTOR
      */
 
-    public GameEngine(BaseShape ...shapePassIn) { //Spread operator
+    public GameEngine(BaseShape ...shapePassIn) { //Spread operator, #23 polymorphism
         //Setup width & height
         width = 100;
         height = 25;

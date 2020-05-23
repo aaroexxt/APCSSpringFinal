@@ -32,7 +32,7 @@ public class GameEngineTest2 {
 		HashMap<Integer, Position> narratorPositions = new HashMap<>(); //Hashmap for narrator positions - frame, Position
 		
 		//Create bitmap objects to store information
-		BitMap narrator = new BitMap();
+		BitMap narrator = new BitMap(); //#20 - interaction between classes
 		BitMap stickman = new BitMap();
 		BitMap background = new BitMap();
 		
